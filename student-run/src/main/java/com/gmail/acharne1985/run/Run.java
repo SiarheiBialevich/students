@@ -1,17 +1,17 @@
 package com.gmail.acharne1985.run;
 
-import com.gmail.acharne1985.connectorDb.ConnectorDb;
+import com.gmail.acharne1985.connectordb.ConnectorDb;
 import com.gmail.acharne1985.models.Section;
 import com.gmail.acharne1985.models.Student;
 import com.gmail.acharne1985.service.SectionService;
 import com.gmail.acharne1985.service.StudentService;
-import com.gmail.acharne1985.service.impl.SectionDatabaseService;
-import com.gmail.acharne1985.service.impl.StudentDatabaseService;
+import com.gmail.acharne1985.service.impl.SectionServiceImpl;
+import com.gmail.acharne1985.service.impl.StudentServiceImpl;
 
 public class Run {
 
-    private static SectionService sectionService = new SectionDatabaseService();
-    private static StudentService studentService = new StudentDatabaseService();
+    private static SectionService sectionService = new SectionServiceImpl();
+    private static StudentService studentService = new StudentServiceImpl();
 
     public static void main(String[] args) {
 
@@ -46,7 +46,6 @@ public class Run {
         System.out.println();
 
         ConnectorDb.getInstance().closeConnection();
-
     }
 
     private static void createStudent() {
@@ -84,35 +83,35 @@ public class Run {
 
     private static void readById() {
 
-        System.out.println(sectionService.readById(1));
+        System.out.println(sectionService.readById(6));
         System.out.println();
-        System.out.println(studentService.readById(1));
+        System.out.println(studentService.readById(6));
     }
 
     private static void updateStudent() {
 
-        Student student = studentService.readById(1);
+        Student student = studentService.readById(6);
         student.setAge(18);
         studentService.update(student);
     }
 
     private static void updateSection() {
 
-        Section section = sectionService.readById(1);
+        Section section = sectionService.readById(6);
         section.setNameSection("Ping Pong");
         sectionService.update(section);
     }
 
     private static void deleteStudent() {
 
-        Student student1 = studentService.readById(1);
-        studentService.remove(student1);
+        Student student = studentService.readById(6);
+        studentService.remove(student);
     }
 
     private static void deleteSection() {
 
-        Section section1 = sectionService.readById(1);
-        sectionService.remove(section1);
+        Section section = sectionService.readById(6);
+        sectionService.remove(section);
     }
 
     private static void joinSection() {

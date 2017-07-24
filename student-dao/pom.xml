@@ -25,6 +25,12 @@
             <version>1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.gmail.acharne1985.mavenProject</groupId>
+            <artifactId>student-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+
     </dependencies>
 
     <packaging>jar</packaging>
